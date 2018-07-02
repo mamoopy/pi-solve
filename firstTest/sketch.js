@@ -8,6 +8,7 @@ let total = 0;
 
 let pi;
 let bestEst = 1;
+let bestPi;
 
 function setup() {
 	createCanvas(w,h);
@@ -31,9 +32,10 @@ function draw() {
 
 		if (abs(PI-pi) < bestEst) {
 			bestEst = abs(PI-pi);
+			bestPi = pi;
 		}
 
-		console.log(pi," : ",abs(PI-pi)," : ",bestEst," : ",frameRate());
+		console.log(pi," : ",abs(PI-pi)," : ",bestPi," : ",bestEst," : ",frameRate());
 	}
 }
 
