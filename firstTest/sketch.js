@@ -31,8 +31,6 @@ function draw() {
 			bestPi = pi;
 		}
 
-		console.log(pi," : ",abs(PI-pi)," : ",bestPi," : ",bestEst," : ",frameRate());
-
 		let piText = document.getElementById('pi');
 		let pi_accText = document.getElementById('pi-acc');
 		let best_piText = document.getElementById('best-pi');
@@ -55,7 +53,6 @@ function draw() {
 
 	}
 }
-
 function spot() {
 	translate(-d/2,-d/2);
 	let x = getRanCoor();
