@@ -45,6 +45,14 @@ function draw() {
 		best_pi_accText.innerHTML = 'Best PI accuracy  : '+bestEst;
 		fpsText.innerHTML         = 'Framerate         : '+frameRate();
 
+		if (frameRate() < 5) {
+			fpsText.setAttribute('style','color:red');
+	  } else if (frameRate() < 15) {
+			fpsText.setAttribute('style','color:orange');
+		} else {
+			fpsText.setAttribute('style','color:green');
+		}
+
 	}
 }
 
