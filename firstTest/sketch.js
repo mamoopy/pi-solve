@@ -1,8 +1,5 @@
 let d = 600;
 
-let w = d;
-let h = d;
-
 let inCircle = 0;
 let total = 0;
 
@@ -11,21 +8,20 @@ let bestEst = 1;
 let bestPi;
 
 function setup() {
-	createCanvas(w,h);
+	createCanvas(d,d+20);
 	background(0);
-
 	speedSlider = createSlider(1,1000,1);
-	speedSlider.position(10,h);
+	speedSlider.position(50,90);
 }
 
 function draw() {
 	for (let i = 0;i<speedSlider.value();i++){
-		translate(w/2,h/2);
+		translate(d/2,d/2);
 		stroke(255,0,0);
 		strokeWeight(1);
 
 		noFill();
-		ellipse(0,0,w,h);
+		ellipse(0,0,d,d);
 
 		spot();
 		pi = 4 * inCircle/total;
@@ -36,15 +32,28 @@ function draw() {
 		}
 
 		console.log(pi," : ",abs(PI-pi)," : ",bestPi," : ",bestEst," : ",frameRate());
+
+		let piText = document.getElementById('pi');
+		let pi_accText = document.getElementById('pi-acc');
+		let best_piText = document.getElementById('best-pi');
+		let best_pi_accText = document.getElementById('best-pi-acc');
+		let fpsText = document.getElementById('fps');
+
+		piText.innerHTML          = 'Last PI estimation: '+pi;
+		pi_accText.innerHTML      = 'Last PI accuracy  : '+abs(PI-pi);
+		best_piText.innerHTML     = 'Best PI estimation: '+bestPi;
+		best_pi_accText.innerHTML = 'Best PI accuracy  : '+bestEst;
+		fpsText.innerHTML         = 'Framerate         : '+frameRate();
+
 	}
 }
 
 function spot() {
-	translate(-w/2,-h/2);
-	let x = getRanCoor(w);
-	let y = getRanCoor(h);
+	translate(-d/2,-d/2);
+	let x = getRanCoor();
+	let y = getRanCoor();
 
-	if (dist(w/2,h/2,x,y)>w/2) {
+	if (dist(d/2,d/2,x,y)>d/2) {
 		stroke(255);
 	} else {
 		stroke(0,255,0);
@@ -55,7 +64,7 @@ function spot() {
 	strokeWeight(1);
 	point(x,y);
 
-	function getRanCoor(axis) {
-		return floor(map(random(1),0,1,0,axis));
+	function getRanCoor() {
+		return floor(map(random(1),0,1,0,d));
 	}
 }
