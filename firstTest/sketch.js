@@ -8,7 +8,7 @@ let bestEst = 1;
 let bestPi;
 
 function setup() {
-	createCanvas(d,d+20);
+	createCanvas(d,d);
 	background(0);
 	speedSlider = createSlider(1,1000,1);
 	speedSlider.position(50,90);
