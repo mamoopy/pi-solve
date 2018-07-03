@@ -47,7 +47,7 @@ function draw() {
 
 		if (frameRate() < 5) {
 			fpsText.setAttribute('style','color:red');
-	  } else if (frameRate() < 30) {
+	  } else if (frameRate() < 15) {
 			fpsText.setAttribute('style','color:orange');
 		} else {
 			fpsText.setAttribute('style','color:green');
